@@ -48,12 +48,14 @@ const Hero = () => {
           {/* Glowing Border */}
           <div className="absolute inset-0 bg-gradient-to-tr from-terra via-mint to-sun rounded-[2rem_4rem_2rem_3rem] blur-lg opacity-60 animate-pulse"></div>
 
-          {/* Image Container */}
-          <div className="relative w-full h-full rounded-[2rem_4rem_2rem_3rem] overflow-hidden border-[3px] border-white p-1.5 bg-white/50 backdrop-blur-sm z-10">
+          {/* Image Container - SOFTER BORDER & PADDING */}
+          <div className="relative w-full h-full rounded-[2rem_4rem_2rem_3rem] overflow-hidden border-2 border-cream/40 p-1 bg-cream/30 backdrop-blur-sm z-10 shadow-sm">
             <img
               src="/src/assets/profile.png"
               alt="Kuzivakwashe Mawoyo"
-              className="w-full h-full object-cover rounded-[1.5rem_3.5rem_1.5rem_2.5rem]"
+              // --- THE FIX: ADDED FADE MASK HERE ---
+              // This creates a radial gradient mask: center is visible (black), edges are transparent.
+              className="w-full h-full object-cover rounded-[1.8rem_3.8rem_1.8rem_2.8rem] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]"
               onError={(e) => {
                 e.target.src =
                   "https://placehold.co/400x500/1D3557/F1F1F1?text=Image+Missing";
@@ -146,7 +148,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
           >
             <motion.a
-              href="#skills" // Points to the new section
+              href="#skills"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(237, 85, 59, 0.4)",
