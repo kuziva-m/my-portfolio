@@ -48,13 +48,11 @@ const Hero = () => {
           {/* Glowing Border */}
           <div className="absolute inset-0 bg-gradient-to-tr from-terra via-mint to-sun rounded-[2rem_4rem_2rem_3rem] blur-lg opacity-60 animate-pulse"></div>
 
-          {/* Image Container - SOFTER BORDER & PADDING */}
+          {/* Image Container */}
           <div className="relative w-full h-full rounded-[2rem_4rem_2rem_3rem] overflow-hidden border-2 border-cream/40 p-1 bg-cream/30 backdrop-blur-sm z-10 shadow-sm">
             <img
               src="/src/assets/profile.png"
               alt="Kuzivakwashe Mawoyo"
-              // --- THE FIX: ADDED FADE MASK HERE ---
-              // This creates a radial gradient mask: center is visible (black), edges are transparent.
               className="w-full h-full object-cover rounded-[1.8rem_3.8rem_1.8rem_2.8rem] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]"
               onError={(e) => {
                 e.target.src =
@@ -66,19 +64,10 @@ const Hero = () => {
 
         {/* RIGHT COLUMN: Text Content */}
         <div className="flex-1 text-center lg:text-left w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            {/* PERSONAL BADGE */}
-            <span className="inline-block py-1.5 px-4 rounded-full bg-white border border-navy/10 text-navy text-xs md:text-sm font-medium tracking-wider mb-6 backdrop-blur-md uppercase shadow-sm">
-              👋 Hi, I'm Kuziva
-            </span>
-          </motion.div>
-
           {/* --- ANIMATION CONTAINER --- */}
-          <div className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-8 text-navy flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start gap-2 lg:gap-4">
+          {/* REMOVED THE BADGE DIV THAT WAS HERE */}
+
+          <div className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-8 text-navy flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-start gap-2 lg:gap-4">
             {/* Static Text */}
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -94,33 +83,33 @@ const Hero = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="h-[50px] md:h-[70px] lg:h-[80px] overflow-hidden relative w-full lg:w-auto"
+              className="h-[70px] md:h-[90px] lg:h-[110px] overflow-hidden relative w-full lg:w-auto"
             >
               <div className="animate-text-slide flex flex-col items-center lg:items-start">
                 {/* Item 1 */}
-                <div className="h-[50px] md:h-[70px] lg:h-[80px] flex items-center justify-center lg:justify-start w-full">
-                  <span className="bg-mint text-navy px-3 md:px-4 py-1 transform -skew-x-6 inline-block shadow-lg shadow-mint/20 whitespace-nowrap text-2xl md:text-4xl lg:text-5xl">
+                <div className="h-[70px] md:h-[90px] lg:h-[110px] flex items-center justify-center lg:justify-start w-full">
+                  <span className="bg-mint text-navy px-4 py-3 inline-block shadow-lg shadow-mint/20 whitespace-nowrap">
                     Stunning Websites
                   </span>
                 </div>
 
                 {/* Item 2 */}
-                <div className="h-[50px] md:h-[70px] lg:h-[80px] flex items-center justify-center lg:justify-start w-full">
-                  <span className="bg-sun text-navy px-3 md:px-4 py-1 transform -skew-x-6 inline-block shadow-lg shadow-sun/20 whitespace-nowrap text-2xl md:text-4xl lg:text-5xl">
+                <div className="h-[70px] md:h-[90px] lg:h-[110px] flex items-center justify-center lg:justify-start w-full">
+                  <span className="bg-sun text-navy px-4 py-3 inline-block shadow-lg shadow-sun/20 whitespace-nowrap">
                     Web Applications
                   </span>
                 </div>
 
                 {/* Item 3 */}
-                <div className="h-[50px] md:h-[70px] lg:h-[80px] flex items-center justify-center lg:justify-start w-full">
-                  <span className="bg-terra text-white px-3 md:px-4 py-1 transform -skew-x-6 inline-block shadow-lg shadow-terra/20 whitespace-nowrap text-2xl md:text-4xl lg:text-5xl">
+                <div className="h-[70px] md:h-[90px] lg:h-[110px] flex items-center justify-center lg:justify-start w-full">
+                  <span className="bg-terra text-white px-4 py-3 inline-block shadow-lg shadow-terra/20 whitespace-nowrap">
                     Digital Experiences
                   </span>
                 </div>
 
                 {/* Clone Item 1 */}
-                <div className="h-[50px] md:h-[70px] lg:h-[80px] flex items-center justify-center lg:justify-start w-full">
-                  <span className="bg-mint text-navy px-3 md:px-4 py-1 transform -skew-x-6 inline-block shadow-lg shadow-mint/20 whitespace-nowrap text-2xl md:text-4xl lg:text-5xl">
+                <div className="h-[70px] md:h-[90px] lg:h-[110px] flex items-center justify-center lg:justify-start w-full">
+                  <span className="bg-mint text-navy px-4 py-3 inline-block shadow-lg shadow-mint/20 whitespace-nowrap">
                     Stunning Websites
                   </span>
                 </div>
