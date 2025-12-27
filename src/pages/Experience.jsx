@@ -15,23 +15,32 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-20 bg-cream relative overflow-hidden"
+      className="py-24 bg-cream relative overflow-hidden"
     >
-      {/* Static Background Decor */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-mint/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-terra/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+      {/* --- PATTERN FIX: High Visibility Terra Dots --- */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-20"
+        style={{
+          // 2px dots = Bold and clearly visible
+          backgroundImage: "radial-gradient(#ED553B 2px, transparent 2px)",
+          backgroundSize: "24px 24px",
+        }}
+      ></div>
+
+      {/* Subtle Warm Glow (Top Right) */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sun/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold text-navy mb-4 tracking-tight"
+            className="text-4xl md:text-6xl font-extrabold text-navy mb-4 tracking-tight"
           >
             Professional{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-terra to-mint">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-terra to-sun">
               Journey
             </span>
           </motion.h2>
@@ -44,10 +53,10 @@ const Experience = () => {
         {/* --- THE LIVING TIMELINE --- */}
         <div ref={containerRef} className="relative pt-10 pb-10">
           {/* CENTRAL LINE */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-navy/10 -translate-x-1/2 rounded-full">
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-navy/10 -translate-x-1/2">
             <motion.div
               style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-terra via-sun to-mint origin-top rounded-full"
+              className="w-full bg-gradient-to-b from-terra via-sun to-terra origin-top"
             />
           </div>
 
@@ -76,22 +85,22 @@ const TimelineItem = ({ job, index }) => {
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true, margin: "-50px" }}
-        className="absolute left-8 md:left-1/2 top-0 md:top-8 w-6 h-6 bg-white border-[5px] border-navy rounded-full -translate-x-1/2 z-20 shadow-md"
+        className="absolute left-8 md:left-1/2 top-0 md:top-8 w-5 h-5 bg-white border-[4px] border-terra rounded-full -translate-x-1/2 z-20 shadow-[0_0_0_4px_#F1FAEE]"
       />
 
       {/* 2. CONTENT CARD */}
       <motion.div
-        initial={{ opacity: 0, x: isEven ? -100 : 100, scale: 0.9 }}
+        initial={{ opacity: 0, x: isEven ? -50 : 50, scale: 0.95 }}
         whileInView={{ opacity: 1, x: 0, scale: 1 }}
         viewport={{ once: true, margin: "-20%" }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className={`ml-20 md:ml-0 md:w-[45%] w-full relative group`}
       >
-        <div className="bg-white/90 backdrop-blur-xl p-8 rounded-[2rem] border border-navy/10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+        <div className="bg-white rounded-2xl border border-navy/5 p-8 shadow-sm hover:shadow-xl hover:shadow-terra/5 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
           <div className="relative z-10">
             <div className="flex flex-col sm:flex-row gap-5 mb-5 items-start">
               {/* Logo Box */}
-              <div className="w-16 h-16 rounded-2xl bg-white border border-navy/5 p-2 shadow-md flex items-center justify-center flex-shrink-0">
+              <div className="w-16 h-16 rounded-xl bg-white border border-navy/5 p-2 shadow-sm flex items-center justify-center flex-shrink-0">
                 <img
                   src={job.logo}
                   alt={job.company}
@@ -104,35 +113,30 @@ const TimelineItem = ({ job, index }) => {
 
               <div className="flex-1 min-w-0">
                 {/* DATE */}
-                <div className="font-mono text-xs font-bold mb-1 tracking-wide text-navy/70 flex items-center gap-2">
+                <div className="font-mono text-xs font-bold mb-1.5 tracking-wide text-navy/50 flex items-center gap-2">
                   <span className="text-terra font-extrabold">&gt;_</span>
                   {job.period}
                 </div>
 
-                <h3 className="text-xl font-bold text-navy leading-tight">
+                <h3 className="text-xl font-bold text-navy leading-tight group-hover:text-terra transition-colors">
                   {job.role}
                 </h3>
-                <h4 className="text-sm font-extrabold text-navy/40 uppercase tracking-widest mt-1">
+                <h4 className="text-sm font-bold text-navy/40 uppercase tracking-widest mt-1">
                   {job.company}
                 </h4>
               </div>
             </div>
 
-            <p className="text-navy/80 text-base leading-relaxed mb-6 font-medium">
+            <p className="text-navy/70 text-base leading-relaxed mb-6 font-medium">
               {job.description}
             </p>
 
-            {/* --- NEW TECH STACK DESIGN --- */}
-            <div className="flex flex-wrap gap-2.5">
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2">
               {job.tech.map((t, i) => (
                 <span
                   key={i}
-                  // REDESIGNED:
-                  // 1. font-mono: Looks technical
-                  // 2. rounded-md: Looks like a keyboard key (not a pill)
-                  // 3. text-sm: Bigger text
-                  // 4. bg-white + shadow-sm: Pops off the card
-                  className="font-mono text-sm font-bold text-navy bg-white px-3 py-1.5 rounded-md border border-navy/10 shadow-sm hover:border-terra/50 transition-colors"
+                  className="font-mono text-xs font-bold text-navy/70 bg-cream px-3 py-1.5 rounded border border-navy/5 hover:border-terra/30 hover:text-navy transition-colors"
                 >
                   {t}
                 </span>
@@ -143,11 +147,11 @@ const TimelineItem = ({ job, index }) => {
 
         {/* Desktop Arrow */}
         <div
-          className={`hidden md:block absolute top-12 w-5 h-5 bg-white border-b border-l border-navy/10 rotate-45 transform 
+          className={`hidden md:block absolute top-12 w-4 h-4 bg-white border-b border-l border-navy/5 rotate-45 transform 
           ${
             isEven
-              ? "-right-2.5 border-r-0 border-t-0"
-              : "-left-2.5 border-b-0 border-l-0 border-t border-r"
+              ? "-right-2 border-r-0 border-t-0"
+              : "-left-2 border-b-0 border-l-0 border-t border-r"
           }`}
         ></div>
       </motion.div>

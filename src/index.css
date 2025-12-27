@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* --- ADDED: Global Font Defaults --- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: "Manrope", sans-serif;
+    @apply bg-cream text-navy;
+  }
+
+  /* Force headers to use the new font weight */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* --- MESH GRADIENT UTILITY --- */
+.bg-mesh-gradient {
+  background: radial-gradient(
+      at 0% 0%,
+      rgba(168, 216, 185, 0.3) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 0%, rgba(246, 213, 92, 0.3) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(237, 85, 59, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(29, 53, 87, 0.1) 0px, transparent 50%);
+}

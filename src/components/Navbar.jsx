@@ -30,7 +30,7 @@ const Navbar = () => {
           {/* LOGO: Technical & Bold */}
           <a href="#" className="group">
             <h1 className="text-2xl font-bold text-navy tracking-tight flex items-center gap-1">
-              Kuziva
+              Kuzivakwashe Mawoyo
               <span className="w-2 h-2 rounded-full bg-terra group-hover:scale-125 transition-transform duration-300"></span>
             </h1>
           </a>
