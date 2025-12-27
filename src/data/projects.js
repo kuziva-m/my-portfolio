@@ -1,41 +1,42 @@
+// Ensure you have these images in src/assets/
+import melbourne from "../assets/melbourne.png";
+import seednsell from "../assets/seednsell.png";
+
 export const projects = [
   {
     id: 1,
-    title: "Agency Management SaaS",
-    category: "Full Stack",
+    title: "My Portfolio", // Replaced Agency
+    category: "Personal Brand",
     description:
-      "A multi-tenant dashboard for creative agencies to manage clients, invoices, and projects. Features real-time updates and Stripe Connect integration.",
-    // Placeholder image
-    image: "https://placehold.co/800x600/1D3557/F1FAEE?text=Agency+SaaS",
-    tech: ["Next.js 14", "Supabase", "Stripe", "Tailwind"],
-    github: "https://github.com/yourusername/project",
-    demo: "https://demo-link.com",
+      "The immersive digital experience you are exploring right now. Built to demonstrate advanced React patterns, Framer Motion animations, and clean architectural design.",
+    image: "CODE_VISUAL", // <--- Special Flag
+    tech: ["React", "Framer Motion", "Tailwind", "Vite"],
+    github: "", // Removed as requested
+    demo: "", // Removed as requested
     featured: true,
   },
   {
     id: 2,
-    title: "E-Commerce Engine",
-    category: "Frontend",
+    title: "Melbourne Peptides",
+    category: "E-Commerce Store",
     description:
-      "High-performance headless checkout solution. Built for speed with optimistic UI updates and edge caching strategies.",
-    // Placeholder image
-    image: "https://placehold.co/800x600/ED553B/FFFFFF?text=E-Commerce",
-    tech: ["React", "Redux Toolkit", "Framer Motion"],
-    github: "https://github.com/yourusername/project",
-    demo: "https://demo-link.com",
+      "A secure, high-performance online store built for scale. Features include a custom admin dashboard for inventory management, secure Stripe checkout, and real-time order tracking.",
+    image: melbourne,
+    tech: ["React", "Supabase", "Stripe", "Firebase"],
+    github: "https://github.com/kuziva-m/peptide-store",
+    demo: "https://melbourne-peptides.web.app",
     featured: true,
   },
   {
     id: 3,
-    title: "Drone Telemetry Dashboard",
-    category: "IoT / Data",
+    title: "SeednSell",
+    category: "AgriTech Marketplace",
     description:
-      "Real-time visualization of drone flight data. Websocket connections stream altitude, battery, and GPS coordinates to a map interface.",
-    // Placeholder image
-    image: "https://placehold.co/800x600/A8D8B9/1D3557?text=Drone+Tech",
-    tech: ["Vue.js", "D3.js", "WebSockets", "Mapbox"],
-    github: "https://github.com/yourusername/project",
-    demo: "https://demo-link.com",
-    featured: false,
+      "A digital marketplace connecting farmers directly with buyers. Features real-time chat, dashboard management, and secure product listings.",
+    image: seednsell,
+    tech: ["JavaScript", "Firebase", "Supabase", "Vite"],
+    // No github link -> Code button hidden
+    demo: "https://seed-and-sell.web.app",
+    featured: true,
   },
 ];
