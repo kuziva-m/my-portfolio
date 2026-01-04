@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import profileImg from "../assets/profile.png"; // <--- 1. ADDED IMPORT
 
 const ContactModal = ({ isOpen, onClose }) => {
   const [triggerExplosion, setTriggerExplosion] = useState(false);
@@ -52,9 +53,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                 <h2 className="text-2xl font-bold text-white tracking-tight font-mono">
                   // CONTACT_ME
                 </h2>
-                <p className="text-terra font-bold text-xs tracking-widest mt-1 uppercase">
-                  Status: Online
-                </p>
+                {/* REMOVED STATUS TEXT HERE */}
               </div>
 
               {/* Close 'X' - Technical Style */}
@@ -85,7 +84,7 @@ const ContactModal = ({ isOpen, onClose }) => {
               <div className="flex items-center gap-6 mb-8">
                 <div className="w-20 h-20 border-[3px] border-navy shadow-[4px_4px_0px_0px_#ED553B] overflow-hidden bg-white shrink-0">
                   <img
-                    src="/src/assets/profile.png"
+                    src={profileImg} // <--- 2. UPDATED SOURCE
                     alt="Profile"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -95,7 +94,8 @@ const ContactModal = ({ isOpen, onClose }) => {
                 </div>
                 <div>
                   <p className="text-navy/60 font-mono text-sm mb-1">
-                    Lead Developer
+                    {/* CHANGED TO DEVELOPER */}
+                    Developer
                   </p>
                   <h3 className="text-xl font-bold text-navy leading-none">
                     Kuzivakwashe
@@ -183,8 +183,9 @@ const ContactModal = ({ isOpen, onClose }) => {
                     </div>
                     <span className="font-bold text-navy">Email</span>
                   </div>
-                  <span className="font-mono text-sm text-navy/50 group-hover:text-navy transition-colors">
-                    kuziva...
+                  {/* CHANGED: Removed 'truncate', used break-all for full visibility */}
+                  <span className="font-mono text-sm text-navy/50 group-hover:text-navy transition-colors break-all text-right max-w-[180px]">
+                    kuziva.mawoyo@gmail.com
                   </span>
                 </a>
               </div>

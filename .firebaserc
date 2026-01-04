@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "porfolio-14790"
+  },
+  "targets": {
+    "kuziva-mawoyo": {
+      "hosting": {
+        "target": [
+          "kuziva-mawoyo"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

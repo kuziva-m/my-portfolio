@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import profileImg from "../assets/profile.png"; // <--- IMPORTING THE IMAGE
 
 const stars = [...Array(30)].map(() => ({
   id: Math.random(),
@@ -37,7 +38,8 @@ const Hero = () => {
       </div>
 
       {/* --- MAIN CONTENT --- */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-0 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      {/* Added pt-32/pt-40 to push content below the fixed navbar */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-12 md:pt-40 lg:py-0 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         {/* LEFT COLUMN: Profile Picture */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, x: -50 }}
@@ -51,7 +53,7 @@ const Hero = () => {
           {/* Image Container */}
           <div className="relative w-full h-full rounded-[2rem_4rem_2rem_3rem] overflow-hidden border-2 border-cream/40 p-1 bg-cream/30 backdrop-blur-sm z-10 shadow-sm">
             <img
-              src="/src/assets/profile.png"
+              src={profileImg} // <--- USING THE IMPORTED VARIABLE HERE
               alt="Kuzivakwashe Mawoyo"
               className="w-full h-full object-cover rounded-[1.8rem_3.8rem_1.8rem_2.8rem] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]"
               onError={(e) => {
@@ -65,7 +67,6 @@ const Hero = () => {
         {/* RIGHT COLUMN: Text Content */}
         <div className="flex-1 text-center lg:text-left w-full">
           {/* --- ANIMATION CONTAINER --- */}
-          {/* REMOVED THE BADGE DIV THAT WAS HERE */}
 
           <div className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-8 text-navy flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-start gap-2 lg:gap-4">
             {/* Static Text */}
