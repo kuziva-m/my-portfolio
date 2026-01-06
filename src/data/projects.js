@@ -23,7 +23,7 @@ export const projects = [
       "A secure, high-performance online store built for scale. Features include a custom admin dashboard for inventory management, secure Stripe checkout, and real-time order tracking.",
     image: melbourne,
     tech: ["React", "Supabase", "Stripe", "Firebase"],
-    demo: "https://melbourne-peptides.web.app",
+    demo: "https://melbournepeptides.com.au/",
     featured: true,
   },
   {

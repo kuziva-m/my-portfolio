@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react"; // <--- 1. Import useState
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
+import LivePreviewModal from "../components/LivePreviewModal"; // <--- 2. Import the Modal
 import { projects } from "../data/projects";
 
 const Portfolio = () => {
+  // 3. State to track which project is currently being previewed
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <section id="projects" className="py-32 bg-cream relative overflow-hidden">
       {/* --- TECHNICAL GRID BACKGROUND --- */}
@@ -75,7 +79,11 @@ const Portfolio = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              <ProjectCard project={project} />
+              {/* 4. Pass the open handler to the card */}
+              <ProjectCard
+                project={project}
+                onOpenPreview={() => setSelectedProject(project)}
+              />
             </motion.div>
           ))}
         </div>
@@ -90,6 +98,13 @@ const Portfolio = () => {
           </a>
         </div>
       </div>
+
+      {/* 5. Render the Live Preview Modal */}
+      <LivePreviewModal
+        isOpen={!!selectedProject}
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 };

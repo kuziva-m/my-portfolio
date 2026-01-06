@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const ProjectCard = ({ project }) => {
+// 1. Accept the new 'onOpenPreview' prop
+const ProjectCard = ({ project, onOpenPreview }) => {
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -66,16 +67,28 @@ const ProjectCard = ({ project }) => {
         {/* Overlay (Visible on Hover) - Only shows if there are buttons */}
         {(project.demo || project.github) && (
           <div className="absolute inset-0 bg-navy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+            {/* 2. CHANGED: Button triggers Modal instead of Link */}
             {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-terra text-white px-5 py-2.5 rounded-lg font-bold text-sm tracking-wide hover:bg-white hover:text-navy transition-colors shadow-lg"
+              <button
+                onClick={onOpenPreview}
+                className="bg-terra text-white px-5 py-2.5 rounded-lg font-bold text-sm tracking-wide hover:bg-white hover:text-navy transition-colors shadow-lg flex items-center gap-2"
               >
-                Live Website
-              </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Live Preview
+              </button>
             )}
+
             {project.github && (
               <a
                 href={project.github}
