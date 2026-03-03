@@ -1,11 +1,10 @@
-import React, { useState } from "react"; // <--- 1. Import useState
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
-import LivePreviewModal from "../components/LivePreviewModal"; // <--- 2. Import the Modal
+import LivePreviewModal from "../components/LivePreviewModal";
 import { projects } from "../data/projects";
 
 const Portfolio = () => {
-  // 3. State to track which project is currently being previewed
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
@@ -21,7 +20,7 @@ const Portfolio = () => {
       ></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* --- HEADER (Fixed Alignment) --- */}
+        {/* --- HEADER --- */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -42,31 +41,7 @@ const Portfolio = () => {
             </p>
           </motion.div>
 
-          {/* Optional: "View All" Link */}
-          <motion.a
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            href="https://github.com/yourusername"
-            target="_blank"
-            className="hidden md:flex items-center gap-2 text-navy font-bold hover:text-terra transition-colors group"
-          >
-            <span className="font-mono text-sm">View GitHub</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="currentColor"
-              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
-          </motion.a>
+          {/* REMOVED: View GitHub Link */}
         </div>
 
         {/* --- PROJECT GRID --- */}
@@ -79,7 +54,6 @@ const Portfolio = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              {/* 4. Pass the open handler to the card */}
               <ProjectCard
                 project={project}
                 onOpenPreview={() => setSelectedProject(project)}
@@ -88,18 +62,9 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Mobile View All Button */}
-        <div className="mt-12 text-center md:hidden">
-          <a
-            href="https://github.com/yourusername"
-            className="inline-flex items-center gap-2 text-navy font-bold border-b-2 border-terra pb-1"
-          >
-            View GitHub
-          </a>
-        </div>
+        {/* REMOVED: Mobile View All Button */}
       </div>
 
-      {/* 5. Render the Live Preview Modal */}
       <LivePreviewModal
         isOpen={!!selectedProject}
         project={selectedProject}

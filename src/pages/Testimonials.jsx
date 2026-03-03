@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { testimonials } from "../data/testimonials";
+// 1. IMPORT YOUR VIDEO HERE (Make sure the file exists in src/assets/)
+// If you don't have the file yet, just comment this line out and use the placeholder logic below
+import melbourneVideo from "../assets/melbourne-review.mp4";
 
 // --- BACKGROUND ICON PATTERN ---
 const BackgroundPattern = () => {
@@ -27,16 +30,12 @@ const BackgroundPattern = () => {
 
 const Testimonials = () => {
   return (
-    // FORCE BG COLOR to Navy (#1D3557)
     <section
       id="testimonials"
       className="py-24 relative overflow-hidden"
       style={{ backgroundColor: "#1D3557" }}
     >
-      {/* 1. BACKGROUND PATTERN */}
       <BackgroundPattern />
-
-      {/* 2. GRADIENT OVERLAY */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1D3557] via-transparent to-[#1D3557] z-0 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -62,8 +61,9 @@ const Testimonials = () => {
           </motion.h2>
         </div>
 
-        {/* REVIEWS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        {/* REVIEWS GRID - Now handles video expansion */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center items-stretch">
+          {/* 1. TEXT REVIEW (Takes 1 Column) */}
           {testimonials.map((review, index) => (
             <motion.div
               key={review.id}
@@ -71,15 +71,12 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              // STYLE: Glassmorphism on Navy
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-lg hover:shadow-[#ED553B]/10 hover:border-[#ED553B]/30 hover:-translate-y-1 transition-all duration-300 relative group"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-lg hover:shadow-[#ED553B]/10 hover:border-[#ED553B]/30 transition-all duration-300 relative group flex flex-col"
             >
-              {/* Quote Icon */}
               <div className="absolute top-6 right-8 text-5xl text-white/5 font-serif leading-none group-hover:text-[#ED553B]/20 transition-colors">
                 &rdquo;
               </div>
 
-              {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(review.rating)].map((_, i) => (
                   <svg
@@ -92,15 +89,13 @@ const Testimonials = () => {
                 ))}
               </div>
 
-              {/* Review Text - CHANGED: Removed 'italic', Made 'text-white', Increased to 'text-lg' */}
-              <p className="text-white mb-6 leading-relaxed relative z-10 font-medium text-lg">
+              <p className="text-white mb-6 leading-relaxed relative z-10 font-medium text-lg flex-grow">
                 "{review.text}"
               </p>
 
               <div className="h-px w-full bg-white/10 mb-4" />
 
-              {/* Client Info */}
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center mt-auto">
                 <div>
                   <h4 className="font-bold text-white text-base">
                     {review.clientName}
@@ -117,6 +112,52 @@ const Testimonials = () => {
               </div>
             </motion.div>
           ))}
+
+          {/* 2. VIDEO REVIEW (Spans 2 Columns on Desktop) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            // COL-SPAN-2: Makes this card twice as wide on large screens
+            className="md:col-span-1 lg:col-span-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 shadow-lg relative flex flex-col h-full"
+          >
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-[#ED553B]/20 flex items-center justify-center text-[#ED553B]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-white font-bold text-lg">
+                  Melbourne Peptides Feedback
+                </h3>
+                <p className="text-white/40 text-xs font-mono uppercase tracking-widest">
+                  Video Testimonial
+                </p>
+              </div>
+            </div>
+
+            {/* Video Container */}
+            <div className="relative w-full h-full rounded-xl overflow-hidden bg-black shadow-inner aspect-video md:aspect-auto">
+              <video
+                controls
+                className="w-full h-full object-cover"
+                // Optional Poster Image while loading
+                // poster="/src/assets/video-poster.jpg"
+              >
+                {/* !!! REPLACE 'melbourneVideo' with the path if not imported above !!! */}
+                <source src={melbourneVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

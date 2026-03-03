@@ -74,22 +74,22 @@ const Skills = () => {
         <motion.div
           animate={{ y: [0, -40, 0], rotate: 360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-10 -left-10 text-emerald-500 opacity-80 w-72 h-72"
+          // FIX: opacity-10 on mobile, md:opacity-80 on desktop
+          // Added resize to w-40 on mobile so it doesn't take up the whole screen
+          className="absolute -top-10 -left-10 text-emerald-500 opacity-10 md:opacity-80 w-40 h-40 md:w-72 md:h-72"
         >
           <Icons.React className="w-full h-full" />
         </motion.div>
 
         {/* Top Right - Big Code Tags (Bold Orange) */}
-        {/* MOVED BACK TO TOP */}
         <motion.div
           animate={{ y: [0, 40, 0], rotate: -15 }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-10 -right-10 text-orange-500 opacity-80 w-64 h-64"
+          // FIX: opacity-10 on mobile, md:opacity-80 on desktop
+          className="absolute -top-10 -right-10 text-orange-500 opacity-10 md:opacity-80 w-40 h-40 md:w-64 md:h-64"
         >
           <Icons.Code className="w-full h-full" />
         </motion.div>
-
-        {/* BOTTOM IS NOW COMPLETELY EMPTY */}
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

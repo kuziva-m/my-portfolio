@@ -1,22 +1,11 @@
-// Ensure you have these images in src/assets/
 import melbourne from "../assets/melbourne.png";
-import seednsell from "../assets/seednsell.png";
+import spinyard from "../assets/spinyard.png";
+// TODO: Take a screenshot of Obsidian Labs, name it 'obsidian.png', and put it in src/assets/
+import obsidian from "../assets/obsidian.png";
 
 export const projects = [
   {
     id: 1,
-    title: "My Portfolio", // Replaced Agency
-    category: "Personal Brand",
-    description:
-      "The immersive digital experience you are exploring right now. Built to demonstrate advanced React patterns, Framer Motion animations, and clean architectural design.",
-    image: "CODE_VISUAL", // <--- Special Flag
-    tech: ["React", "Framer Motion", "Tailwind", "Vite"],
-    github: "", // Removed as requested
-    demo: "", // Removed as requested
-    featured: true,
-  },
-  {
-    id: 2,
     title: "Melbourne Peptides",
     category: "E-Commerce Store",
     description:
@@ -27,15 +16,25 @@ export const projects = [
     featured: true,
   },
   {
-    id: 3,
-    title: "SeednSell",
-    category: "AgriTech Marketplace",
+    id: 2,
+    title: "Spinyard Investments",
+    category: "Corporate Identity",
     description:
-      "A digital marketplace connecting farmers directly with buyers. Features real-time chat, dashboard management, and secure product listings.",
-    image: seednsell,
-    tech: ["JavaScript", "Firebase", "Supabase", "Vite"],
-    // No github link -> Code button hidden
-    demo: "https://seed-and-sell.web.app",
+      "A modern digital presence for an agri-investment firm. Designed to establish brand authority with smooth interactions, highly responsive layouts, and a polished user experience.",
+    image: spinyard,
+    tech: ["React", "Framer Motion", "Tailwind", "Vite"],
+    demo: "https://spinyard.co.zw",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "Obsidian Labs",
+    category: "B2B Research Supply",
+    description:
+      "A specialized platform for an Australian research supplier. Features custom secure access, age verification gateways, tailored inventory tracking, and a seamless bulk-ordering checkout flow.",
+    image: obsidian,
+    tech: ["React", "Context API", "Supabase", "Tailwind CSS"],
+    demo: "https://your-obsidian-labs-link.com", // <-- Update this to the actual live link
     featured: true,
   },
 ];

@@ -1,8 +1,8 @@
 export const testimonials = [
   {
     id: 1,
-    clientName: "Upwork Client", // You can change this to the real name if known, or keep generic
-    role: "eCommerce Business Owner", // Inferred from context (Chrome extension/website)
+    clientName: "Upwork Client",
+    role: "eCommerce Business Owner",
     date: "Nov 2022",
     rating: 5,
     text: "I hired Kuziva in order to put light on possible design or UX/UI issues on a website using our Chrome extension. Did a wonderful job, was very comprehensive, delivered the job on time, the communication was very fluent and smooth and the result was simply beyond expectations. I highly recommend working with Kuziva. You will not regret it 😁.",
@@ -10,4 +10,26 @@ export const testimonials = [
     platform: "Upwork",
     projectType: "UX/UI & Design Audit",
   },
+  {
+    id: 2,
+    clientName: "Director of Operations", 
+    role: "Obsidian Labs (Australia)",
+    date: "Feb 2026",
+    rating: 5,
+    text: "Kuziva completely transformed our online sales process. We needed a highly secure platform with custom age-verification for our B2B research supply business. Not only did he deliver a flawless, blazing-fast site, but the new streamlined checkout flow directly helped us generate over $5,000+ in new revenue within weeks of launching. He understands business growth, not just code. A phenomenal investment.",
+    tags: ["ROI Focused", "Full-Stack Expert", "Problem Solver"],
+    platform: "Direct Client",
+    projectType: "Custom E-Commerce Build",
+  },
+  {
+    id: 3,
+    clientName: "Founder & CEO", 
+    role: "Peptide Pink Boutique",
+    date: "Mar 2026",
+    rating: 5,
+    text: "Working with Kuziva was an absolute dream. We needed a premium, high-end feel for our brand that didn't sacrifice speed or security. He built a stunning, mobile-first storefront that perfectly captures our boutique aesthetic. The custom cart and seamless checkout experience are flawless, which directly contributed to a 45% increase in our mobile conversion rate. He is an incredible technical partner.",
+    tags: ["UI/UX Design", "E-Commerce", "Conversion Focused"],
+    platform: "Direct Client",
+    projectType: "Boutique Storefront Build",
+  }
 ];

@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "porfolio-14790"
+    "default": "porfolio-14790",
+    "staging": "kuziva-portfolio"
   },
   "targets": {
     "kuziva-mawoyo": {
